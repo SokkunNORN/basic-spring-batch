@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: "arm64v8/postgres"
+    restart: on-failure
+    environment:
+      - DB_PASSWORD=batch_password
+      - DB_USER=batch_user
+      - POSTGRES_PASSWORD=batch_password
+    volumes:
+      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"

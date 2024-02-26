@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+
+    <!-- *** DataTypes Declaration *** -->
+
+    <property  name="now"  value="current_timestamp"  dbms="postgresql"/>
+    <property  name="smallint.type"  value="smallint"  dbms="postgresql"/> <!-- range(-32768 to +32767) -->
+    <property  name="int.type"  value="int"  dbms="postgresql"/> <!-- range(-2147483648 to +2147483647) -->
+    <property  name="bigint.type"  value="bigint"  dbms="postgresql"/> <!-- range(-9223372036854775808 to 9223372036854775807) just like number(19) and kotlin/java Long-->
+    <property  name="bigserial.type"  value="bigserial"  dbms="postgresql"/> <!-- range(1 to 9223372036854775807) just like number(19) and kotlin/java Long-->
+    <property  name="clob.type"  value="text"  dbms="postgresql"/>
+    <property  name="pk.type"  value="${bigserial.type}"  dbms="postgresql"/>
+    <property  name="fk.type"  value="${bigint.type}"  dbms="postgresql"/>
+    <property  name="varchar.type"  value="varchar"  dbms="postgresql"/>
+    <property  name="decimal.type"  value="numeric(19,4)"  dbms="postgresql"/>
+    <property  name="timestamp.type"  value="timestamp"  dbms="postgresql"/>
+    <property  name="boolean.type"  value="boolean"  dbms="postgresql"/>
+    <property  name="byte.type"  value="bytea"  dbms="postgresql"/>
+
+    <property  name="clob.type"  value="clob"  dbms="oracle"/>
+    <property  name="pk.type"  value="number(19)"  dbms="oracle"/>
+    <property  name="number.type"  value="number(19)"  dbms="oracle"/>
+    <property  name="varchar.type"  value="varchar2"  dbms="oracle"/>
+    <property  name="decimal.type"  value="number(19,4)"  dbms="oracle"/>
+    <property  name="timestamp.type"  value="timestamp(6)"  dbms="oracle"/>
+
+    <!-- *** Table Declaration *** -->
+
+    <!-- Change Request -->
+    <property  name="table.authorize_status"  value="authorize_status"/>
+    <property  name="table.request_authorizers"  value="request_authorizers"/>
+    <property  name="table.request_changes"  value="request_changes"/>
+    <property  name="table.authorizer_settings"  value="authorizer_settings"/>
+    <property  name="table.authorize_status_types"  value="authorize_status_types"/>
+    <property  name="table.status_types"  value="status_types"/>
+
+    <!-- Auth -->
+    <property  name="table.user_status"  value="user_status"/>
+    <property  name="table.auths"  value="auths"/>
+    <property  name="table.password_policies"  value="password_policies"/>
+    <property  name="table.access_tokens"  value="access_tokens"/>
+    <property  name="table.old_passwords"  value="old_passwords"/>
+    <property  name="table.roles"  value="roles"/>
+    <property  name="table.role_assigns"  value="role_assigns"/>
+    <property  name="table.role_status"  value="role_status"/>
+    <property  name="table.functionalities"  value="functionalities"/>
+    <property  name="table.access_rights"  value="access_rights"/>
+    <property  name="table.users"  value="users"/>
+    <property  name="table.signs"  value="signs"/>
+    <property  name="table.sign_status"  value="sign_status"/>
+    <property  name="table.user_registration_mails"  value="user_registration_mails"/>
+    <property  name="table.user_registration_mails_status"  value="user_registration_mails_status"/>
+
+    <!-- Participant -->
+    <property  name="table.participant_status"  value="participant_status"/>
+    <property  name="table.participants"  value="participants"/>
+    <property  name="table.stores"  value="stores"/>
+    <property  name="table.terminals"  value="terminals"/>
+    <property  name="table.settlement_accounts"  value="settlement_accounts"/>
+    <property  name="table.banks"  value="banks"/>
+    <property name="table.user_participant" value="user_participant"/>
+    <property name="table.user_store" value="user_store"/>
+
+    <!-- System Setting -->
+    <property  name="table.status"  value="status"/>
+    <property  name="table.currency_types"  value="currency_types"/>
+    <property  name="table.fee_types"  value="fee_types"/>
+    <property  name="table.fees"  value="fees"/>
+    <property  name="table.fee_currencies"  value="fee_currencies"/>
+    <property  name="table.bakong_key_pairs"  value="bakong_key_pairs"/>
+    <property  name="table.system_setting"  value="system_setting"/>
+    <property  name="table.business_day_status"  value="business_day_status"/>
+    <property  name="table.business_day"  value="business_day"/>
+    <property  name="table.third_parties"  value="third_parties"/>
+
+    <!-- Transfer -->
+    <property  name="table.participant_wallet"  value="participant_wallet"/>
+    <property  name="table.qr_codes"  value="qr_codes"/>
+    <property  name="table.qr_code_status"  value="qr_code_status"/>
+    <property  name="table.transaction_status"  value="transaction_status"/>
+    <property  name="table.transaction_type"  value="transaction_type"/>
+    <property  name="table.transfer_party"  value="transfer_party"/>
+    <property  name="table.transactions"  value="transactions"/>
+    <property  name="table.bakong_transaction_history"  value="bakong_transaction_history"/>
+    <property  name="table.bakong_transaction_sync"  value="bakong_transaction_sync"/>
+
+    <property  name="table.reconcile_status"  value="reconcile_status"/>
+    <property  name="table.reconciles"  value="reconciles"/>
+    <property  name="table.reconcile_transactions"  value="reconcile_transactions"/>
+
+
+    <!-- Notification -->
+    <property name="table.user_web_notifications" value="user_web_notifications"/>
+    <property name="table.event_managements" value="event_managements"/>
+
+</databaseChangeLog>
